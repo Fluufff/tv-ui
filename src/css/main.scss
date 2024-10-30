@@ -1,0 +1,5 @@
+@use "other";
+
+body {
+  background-color: other.$some_value;
+}
