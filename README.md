@@ -13,3 +13,8 @@ You can then use the built files for example like this.
 ```shell
 $ python3 -m http.server -b 0.0.0.0 -d build
 ```
+
+Hint for during development:
+```shell
+$ watch make
+```

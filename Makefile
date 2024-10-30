@@ -2,7 +2,12 @@ SHELL:=/bin/bash
 .DEFAULT_GOAL := build
 
 .PHONY: build
-build: build/index.html build/index.js build/index.css
+build: build/index.html build/index.js build/index.css static
+
+.PHONY: static
+static: $(shell find src/static -maxdepth 1 -mindepth 1 ||:)
+	mkdir -p build
+	rsync -a src/static/ build
 
 build/index.html: src/html/index.html
 	mkdir -p $$(dirname $@)
