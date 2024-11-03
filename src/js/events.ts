@@ -24,6 +24,7 @@ interface FluufffEvent {
 const scheduleRefresh = () => {
   setTimeout(() => {
     requestPage(0, () => {
+      markActiveEvents();
       scheduleRefresh();
     });
   }, requestIntervalSeconds * 1000)
@@ -88,10 +89,23 @@ const requestPage = (n: Number, cb: () => void) => {
             for (const event of events) {
               const div = document.createElement("div");
 
+              const header = document.createElement("header");
+              div.appendChild(header);
+
               const pName = document.createElement("p");
               pName.setAttribute("name", "");
               pName.textContent = event.name;
-              div.appendChild(pName);
+              header.appendChild(pName);
+
+              const ringContainer = document.createElement("div");
+              ringContainer.setAttribute("ring", "");
+              const ringring = document.createElement("div");
+              ringring.setAttribute("ringring", "");
+              ringContainer.appendChild(ringring);
+              const circle = document.createElement("div");
+              circle.setAttribute("circle", "");
+              ringContainer.appendChild(circle);
+              header.appendChild(ringContainer);
 
               const footer = document.createElement("footer");
               div.appendChild(footer);
@@ -128,4 +142,23 @@ const requestPage = (n: Number, cb: () => void) => {
   }
 }
 
-requestPage(0, scheduleRefresh);
+const markActiveEvents = () => {
+  for (let i = 0; i < lastEvents.length; i++) {
+    const event = lastEvents[i];
+    const el = eventListEl.children[i];
+    const startTime = new Date(event.fields["start-time"]);
+    const endTime = new Date(event.fields["end-time"]);
+    const now = getNow();
+    const isActive = startTime <= now && now <=endTime;
+    if (isActive) {
+      el.setAttribute("event-active", "");
+    } else {
+      el.removeAttribute("event-active");
+    }
+  }
+}
+
+requestPage(0, () => {
+  markActiveEvents();
+  scheduleRefresh();
+});
