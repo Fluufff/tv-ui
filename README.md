@@ -1,6 +1,6 @@
-# Fennec UI
+# TV UI
 
-A minimal web UI skeleton that aims to avoid the bi-annual rewrite of your whole web app build pipeline.
+A UI codebase for display on the TV screens at Fluufff.
 
 ## Quick-start
 
