@@ -2,6 +2,10 @@
 
 A UI codebase for display on the TV screens at Fluufff.
 
+## Use me
+
+Go to [https://fluufff.github.io/tv-ui/](https://fluufff.github.io/tv-ui/).
+
 ## Quick-start
 
 You can build the web ui in the following fashion.
