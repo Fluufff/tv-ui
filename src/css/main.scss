@@ -14,6 +14,14 @@ body {
 }
 
 body {
+  margin: 0;
+  overflow: hidden;
+  transform-origin: right;
+  transform: translate(-100vw, 0) rotate(180deg);
+  writing-mode: vertical-rl;
+}
+
+body {
   color: #e6e6e6;
 }
 
