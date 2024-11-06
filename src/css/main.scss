@@ -93,6 +93,7 @@ body > header {
         }
         [ring] {
           position: relative;
+          bottom: 42px; // hack after 90deg rotate
           width: 60px;
           display: none;
           [ringring] {
