@@ -1,6 +1,6 @@
 import { getNow } from "./util";
 
-const DCMHost = 'test.dcm.fluufff.org';
+const DCMHost = 'dcm.fluufff.org';
 const DCMSiteId = '4162edd2-9dcf-4c51-b15a-2365edf38926';
 const requestIntervalSeconds = 10;
 
